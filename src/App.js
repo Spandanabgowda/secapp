@@ -1,20 +1,25 @@
 import React from 'react'
-import Header from './components/Header'
-import Body from './components/Body'
+import Navigation from './Components/Navigation'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import Home from './Components/Home'
+import Contact from './Components/Contact'
+import TodoList from './Components/TodoList'
+
 const App = () => {
-  function Clickme(){
-    console.log("action done");
-  }
   return (
-    <div className="container">
-      <div className="header"><Header/></div>
-      <div className="body"><Body fun={Clickme}/></div>
-      
-      
-    </div>
+    <div>
+      <Router>
+        <div>
+          <Navigation/>
+      </div>
+      <Routes>
+        <Route path='/' element={<Home />}/>
+        <Route path='/contact' element={<Contact/>}/>
+        <Route path='/todolist' element={<TodoList/>}/>
+      </Routes>
+      </Router>
+      </div>
   )
 }
 
 export default App
-
-      
